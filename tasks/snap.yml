@@ -1,0 +1,5 @@
+---
+- name: Install remmia via snap
+  snap:
+    name:
+      - remmina

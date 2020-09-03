@@ -1,0 +1,24 @@
+---
+- name: Add ppa inline
+  loop:
+    - ppa:remmina-ppa-team/remmina-next
+  loop_control:
+    loop_var: boxes_remote_desktop_ppa
+  shell: add-apt-repository --keyserver hkps://keyserver.ubuntu.com:443 {{ boxes_remote_desktop_ppa }}
+
+# - name: Add ppa ppa:remmina-ppa-team/remmina-next
+#   apt_repository:
+#     repo: ppa:remmina-ppa-team/remmina-next
+#     state: present
+
+- name: Install Remmina packages
+  apt:
+    name: "{{ boxes_remotedesktop_package_name }}"
+    state: present
+  loop_control:
+    loop_var: boxes_remotedesktop_package_name
+  loop:
+    - remmina
+    - remmina-plugin-rdp
+    - remmina-plugin-secret
+    - remmina-plugin-spice
