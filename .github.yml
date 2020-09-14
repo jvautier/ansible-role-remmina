@@ -1,0 +1,8 @@
+---
+fullname: jvautier/ansible-role-remmina
+description: Install remmina through ansible
+tags:
+  - ansible
+  - ansible-role
+  - remmina
+github: {}
